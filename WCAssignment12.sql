@@ -44,7 +44,9 @@ values ( '1', '2014-09-10 09:47:00', '1', '1');
 insert into orders (order_customer, order_date_time, order_p2_quantity, order_p3_quantity)
 values ('2', '2014-09-10 13:20:00', '1', '2');
 insert into orders (order_customer, order_date_time, order_p3_quantity, order_p4_quantity)
-values ('1', '2014-09-10 09:47:00', '1', '1');
+values ('1', '2014-09-10 09:57:00', '1', '1');
+insert into orders (order_customer, order_date_time, order_p2_quantity, order_p3_quantity)
+values ('2', '2014-10-10 14:20:00', '1', '2');
 
 -- customer orders --
 CREATE TABLE customer_orders (
@@ -59,6 +61,9 @@ insert into customer_orders (customer_id, order_id)
 values ('2', '2');
 insert into customer_orders (customer_id, order_id)
 values ('1', '3');
+insert into customer_orders (customer_id, order_id)
+values ('2', '4');
+
 
 -- order pizzas --
 CREATE TABLE order_pizzas (
@@ -80,6 +85,10 @@ insert into order_pizzas (order_id, pizza_id, quantity)
 values ('3', '3', '1');
 insert into order_pizzas (order_id, pizza_id, quantity)
 values ('3', '4', '1');
+insert into order_pizzas (order_id, pizza_id, quantity)
+values ('4', '2', '1');
+insert into order_pizzas (order_id, pizza_id, quantity)
+values ('4', '3', '2');
 
 -- practice --
 select order_id,
@@ -103,4 +112,4 @@ from orders o
 join customer_orders cu on cu.order_id = o.order_id
 join order_pizzas op on op.order_id = cu.order_id
 join pizzas p on p.pizza_id = op.pizza_id
-group by o.order_id;
+group by order_date_time;
