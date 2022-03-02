@@ -106,7 +106,7 @@ join pizzas p on p.pizza_id = op.pizza_id
 group by customer_id;
 
 -- Q5 --
-select order_date_time, order_customer, 
+select date (order_date_time), order_customer, 
 	sum(op.quantity*p.pizza_price) as order_total 
 from orders o
 join customer_orders cu on cu.order_id = o.order_id
